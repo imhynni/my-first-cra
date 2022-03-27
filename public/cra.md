@@ -42,3 +42,7 @@ useEffect(function, [keyword]);
 - 두번째 인자에 빈 array를 주게 되면 react가 지켜볼 대상이 없기 때문에 처음 한 번만 실행되는 것
 - array 안에 여러개 넣을 수도 있음
 - useEffect는 react.js가 동작하는 관점에서 말하자면 '방어막' 같은 것
+
+## CleanUp
+
+- component가 destroyed 될 때도 뭔가를 실행하고 싶다면, effect function의 return에 넣어주면 된다
