@@ -46,3 +46,14 @@ useEffect(function, [keyword]);
 ## CleanUp
 
 - component가 destroyed 될 때도 뭔가를 실행하고 싶다면, effect function의 return에 넣어주면 된다
+
+## State
+
+### state가 배열일 때 setState를 사용해 배열을 수정하는 방법
+
+```
+setState(currentArray => [newItem, ...currentArray]);
+```
+
+- setState의 인자로 함수를 전달한다.
+- 현재 배열과 새로운 요소를 합쳐 새로운 배열을 만들어내는 방법 : '...' 사용
