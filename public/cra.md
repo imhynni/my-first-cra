@@ -68,3 +68,8 @@ setState(currentArray => [newItem, ...currentArray]);
 - map을 쓸 때마다 key를 element에 주어야 한다!
 
 ## then 대신 사용하는 async-await
+
+## React Router
+
+- 페이지 전환
+- 하나의 route는 home, 홈스크린, 홈페이지 등 부를 때는 스크린, route, 페이지 부르고 싶은 대로
