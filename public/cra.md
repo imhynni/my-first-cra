@@ -65,3 +65,6 @@ setState(currentArray => [newItem, ...currentArray]);
   - map 함수의 첫번째 인자로 현재 요소를 가져올 수 있다.
   - map 함수의 두번째 인자로 현재 요소의 인덱스를 가져올 수 있다.
 - 각각의 요소를 태그 안에 넣어 단순한 텍스트에서 컴포넌트로 만들어준다.
+- map을 쓸 때마다 key를 element에 주어야 한다!
+
+### then 대신 사용하는 async-await

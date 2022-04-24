@@ -2,53 +2,40 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState([]);
-  const [dollars, setDollars] = useState(0);
-  const [selectedCoin, setSelectedCoin] = useState(0);
-  const [result, setResult] = useState(null);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+      )
+    ).json();
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
   useEffect(() => {
-    fetch("https://api.coinpaprika.com/v1/tickers?limit=100")
-      .then((response) => response.json())
-      .then((json) => {
-        setCoins(json);
-        setLoading(false);
-        setSelectedCoin(json[0].quotes.USD.price);
-      });
+    getMovies();
   }, []);
-  const onDollarChange = (event) => {
-    setDollars(event.target.value);
-  };
-  const onSelectChange = (event) => {
-    setSelectedCoin(event.target.value);
-  };
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setResult(dollars / selectedCoin);
-  };
+  console.log(movies);
   return (
     <div>
-      <h1>The Coins! {loading ? "" : `(${coins.length})`}</h1>
       {loading ? (
-        <strong>Loading...</strong>
+        <h1>loading...</h1>
       ) : (
-        <select onChange={onSelectChange}>
-          {coins.map((coin) => (
-            <option key={coin.id} value={coin.quotes.USD.price}>
-              {coin.name} ({coin.symbol}): {coin.quotes.USD.price}
-            </option>
+        <div>
+          {movies.map((movie) => (
+            <div key={movie.id}>
+              <img src={movie.medium_cover_image} />
+              <h2>{movie.title}</h2>
+              <p>{movie.summary}</p>
+              <ul>
+                {movie.genres.map((genre) => (
+                  <li key={genre}>{genre}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </select>
+        </div>
       )}
-      <form onSubmit={onSubmit}>
-        <input
-          onChange={onDollarChange}
-          value={dollars}
-          type="number"
-          placeholder="how much do you have?"
-        ></input>
-        <button>exchange</button>
-      </form>
-      {result === null ? null : <span>You can get {result} coins</span>}
     </div>
   );
 }
