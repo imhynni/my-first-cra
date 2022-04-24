@@ -73,3 +73,12 @@ setState(currentArray => [newItem, ...currentArray]);
 
 - 페이지 전환
 - 하나의 route는 home, 홈스크린, 홈페이지 등 부를 때는 스크린, route, 페이지 부르고 싶은 대로
+- Router를 먼저 렌더링 해주고, 그 안에 들어가는 건 유저가 있는 url에 따라 보여줄 컴포넌트를 넣어줌
+
+### Switch
+
+- Switch는 Route를 찾는 건데, Route는 url을 의미하고, Route를 찾으면 컴포넌트를 렌더링 할 것, Switch 컴포넌트를 넣어주면 한 번에 하나의 컴포넌트만 렌더링되게 할 수 있음
+
+### Link
+
+- Link는 브라우저 새로고침 없이 유저를 다른 페이지로 이동시켜주는 컴포넌트
