@@ -67,4 +67,4 @@ setState(currentArray => [newItem, ...currentArray]);
 - 각각의 요소를 태그 안에 넣어 단순한 텍스트에서 컴포넌트로 만들어준다.
 - map을 쓸 때마다 key를 element에 주어야 한다!
 
-### then 대신 사용하는 async-await
+## then 대신 사용하는 async-await
