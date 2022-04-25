@@ -69,6 +69,21 @@ setState(currentArray => [newItem, ...currentArray]);
 
 ## then 대신 사용하는 async-await
 
+- 이중으로 await 사용 가능
+- await는 async 함수 내부에 있지 않으면 사용할 수 없음
+- 사용 예시
+
+```
+  const getMovie = async () => {
+    const json = await (
+      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+    ).json();
+  };
+  useEffect(() => {
+    getMovie();
+  }, []);
+```
+
 ## React Router
 
 - 페이지 전환
@@ -82,3 +97,10 @@ setState(currentArray => [newItem, ...currentArray]);
 ### Link
 
 - Link는 브라우저 새로고침 없이 유저를 다른 페이지로 이동시켜주는 컴포넌트
+
+### Dynamic(동적) URL
+
+- React Router는 다이나믹 url을 지원
+- url에 변수를 넣을 수 있다는 것
+- path에서 넣으려는 변수 이름 앞에 : 를 넣어주어야 함
+- react router에서 url에 있는 변수를 알려주는 함수를 제공함 : 내가 쓴 변수명 그대로 받게 됨
