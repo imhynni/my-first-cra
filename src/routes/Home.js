@@ -16,7 +16,6 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
   return (
     <div>
       {loading ? (
@@ -29,7 +28,7 @@ function Home() {
               id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title}
-              summary={movie.title}
+              summary={movie.summary}
               genres={movie.genres}
             />
           ))}
