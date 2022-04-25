@@ -15,7 +15,6 @@ function Movie({ id, coverImg, title, summary, genres }) {
       </ul>
     </div>
   );
-  return null;
 }
 
 Movie.propTypes = {

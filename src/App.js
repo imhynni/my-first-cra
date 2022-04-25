@@ -4,13 +4,13 @@ import Detail from "./routes/Detail";
 import Nav from "./components/Nav";
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Nav />
       <Switch>
-        <Route path="/movie/:id">
+        <Route path={`${process.env.PUBLIC_URL}/movie/:id`}>
           <Detail />
         </Route>
-        <Route path="/">
+        <Route path={`${process.env.PUBLIC_URL}/`}>
           <Home />
         </Route>
       </Switch>
